@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Splashloader from "./Splashloader";
 import Splashbackground from "./Splashbackground";
+import Infopage from "../home/infopage/Infopage";
 
 interface SplashProps {
   title: string;
@@ -22,7 +23,6 @@ const Splash: React.FC<SplashProps> = ({ title }) => {
 
   return (
     <>
-      <Splashbackground />
       <div className="typewriter-container">
         <div className="typewriter">
           <h1>{title}</h1>

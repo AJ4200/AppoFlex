@@ -1,0 +1,48 @@
+.home-container {
+    display: flex;
+    max-width: max-content;
+    gap: 5px;
+  }
+  
+  .infopage {
+    width: 65%;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(22, 26, 34, 0.226);
+    margin-top: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.125);
+    word-wrap: break-word;
+  }
+  
+  
+
+  
+  .funfact-card {
+    width: 35%;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(82, 54, 54, 0.226);
+    margin-top: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.125);  
+  }
+  
+  .artwork-image {
+    border: 2px solid rgba(255, 255, 255, 0.125);
+    width: 400px;
+    height: 200px;  
+  }
+  
+  .typingeffect {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden;
+    border-right: .15em solid orange;
+    white-space: nowrap;
+    animation: typingmain 3.5s steps(30, end);
+  }
+  
+  @keyframes typingmain {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  

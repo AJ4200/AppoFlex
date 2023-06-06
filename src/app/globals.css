@@ -1,7 +1,7 @@
 :root {
   --border-radius: 12px;
-  --font-mono: 'Comic Sans MS', cursive;
-  --font-cute: 'Indie Flower', cursive;
+  --font-cute: 'Comic Sans MS', cursive;
+  --font-mono: 'Indie Flower', cursive;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 207, 219, 213;
@@ -111,12 +111,12 @@ a {
 /* Example usage */
 h1 {
   font-size: var(--font-size-xxl);
-  font-family: var(--font-cute);
+  font-family: monospace;
 }
 
 p {
   font-size: var(--font-size-lg);
-  font-family: var(--font-cute);
+  font-family: monospace;
 }
 
 /* Responsive Styles */
@@ -124,14 +124,17 @@ p {
 @media only screen and (max-width: 768px) {
   /* Styles for tablets */
   body {
+    font-family: monospace;
     padding-top: 3em;
   }
 
   h1 {
+    font-family: monospace;
     font-size: var(--font-size-xl);
   }
 
   p {
+    font-family: monospace;
     font-size: var(--font-size-md);
   }
 }
@@ -143,10 +146,12 @@ p {
   }
 
   h1 {
+    font-family: monospace;
     font-size: var(--font-size-lg);
   }
 
   p {
+    font-family: monospace;
     font-size: var(--font-size-sm);
   }
 }

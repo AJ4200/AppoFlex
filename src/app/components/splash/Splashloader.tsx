@@ -1,9 +1,7 @@
 import React from "react";
 
-interface SplashloaderProps
-{}
 
-const Splashloader: React.FC<SplashloaderProps> = ({}) =>{
+const Splashloader: React.FC = ({}) =>{
     return(
         <div className="splashloader">
         </div>
