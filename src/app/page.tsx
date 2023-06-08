@@ -4,7 +4,7 @@ import Splash from './components/splash/Splash';
 import Infopage from './components/home/infopage/Infopage';
 import Navbar from './components/navbar/Navbar';
 import Splashbackground from './components/splash/Splashbackground';
-import Funfactpage from './components/home/infopage/Funfactpage';
+import Otherproducts from './components/home/infopage/Otherproducts';
 
 export default function Home() {
   const [showSplash, setShowSplash] = useState(true);
@@ -26,7 +26,7 @@ export default function Home() {
   <><Navbar />
   <div className='home-container'>
   <Infopage />
-  <Funfactpage />
+  <Otherproducts />
     
   </div>
 </>

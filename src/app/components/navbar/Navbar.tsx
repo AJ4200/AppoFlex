@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
 import Connectbutton from './buttons/Connectbutton';
+import Signinbutton from './buttons/Signinbutton';
+import Signupbutton from './buttons/Signupbutton';
 
 const Navbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -18,8 +20,8 @@ const Navbar = () => {
           <Logo />
         </div>
         <div className={`buttons-container ${isMenuOpen ? 'open' : ''}`}>
-          <button className="sign-in-button">Sign In</button>
-          <button className="sign-up-button">Sign Up</button>
+          <Signinbutton/>
+          <Signupbutton/>
         </div>
         <div className={`hamburger-menu ${isMenuOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <div className="bar"></div>
