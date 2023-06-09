@@ -107,6 +107,20 @@ a {
   --font-size-xl: 1.25rem;
   --font-size-xxl: 1.5rem;
 }
+body::-webkit-scrollbar {
+  width: 5px;
+  padding: 2px;
+}
+
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 0;
+}
+
 
 /* Example usage */
 h1 {

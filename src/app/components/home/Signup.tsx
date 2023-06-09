@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ChuckNorrisJoke from '../utils/ChuckNorrisjoke';
 
 const Signup: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -13,14 +14,14 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form animate__animated animate__backInRight" onSubmit={handleSubmit}>
       <div className="title">
         Welcome,
         <br />
         <span>sign up to continue</span>
       </div>
       <label>
-        Email:
+     
         <input
           className="input"
           name="email"
@@ -31,7 +32,7 @@ const Signup: React.FC = () => {
         />
       </label>
       <label>
-        Password:
+
         <input
           className="input"
           name="password"
@@ -42,7 +43,7 @@ const Signup: React.FC = () => {
         />
       </label>
       <label>
-        Reconfirm Password:
+   
         <input
           className="input"
           name="reconfirmPassword"
@@ -53,7 +54,6 @@ const Signup: React.FC = () => {
         />
       </label>
       <label>
-        Business Name:
         <input
           className="input"
           name="businessName"
@@ -64,7 +64,6 @@ const Signup: React.FC = () => {
         />
       </label>
       <label>
-        Business Type:
         <input
           className="input"
           name="businessType"
@@ -78,6 +77,7 @@ const Signup: React.FC = () => {
         Let's go →
       </button>
     </form>
+   
   );
 };
 

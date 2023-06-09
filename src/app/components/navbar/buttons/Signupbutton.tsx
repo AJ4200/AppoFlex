@@ -1,7 +1,12 @@
 import React from "react";
 
-const Signupbutton: React.FC = () => {
-  return <button className="sign-up-button">Sign Up</button>;
+interface SignupbuttonProps
+{
+  onClick : () => void;
+}
+
+const Signupbutton: React.FC<SignupbuttonProps> = ({onClick}) => {
+  return <button className="sign-up-button animate__animated animate__backInRight" onClick={onClick}>Sign Up</button>;
 };
 
 export default Signupbutton;

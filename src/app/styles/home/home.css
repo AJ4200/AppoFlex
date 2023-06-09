@@ -24,12 +24,27 @@
   border: 2px solid rgba(255, 255, 255, 0.125);
   height: calc(100vh - 2rem); /* Adjust the height to fit within the viewport */
   display: list-item;
+  overflow-y:scroll ;
+}
+.otherproducts-card::-webkit-scrollbar {
+  width: 5px;
+  padding: 2px;
 }
 
+.otherproducts-card::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.otherproducts-card::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  opacity: 0.5;
+  border-radius: 0;
+}
 .othersite-card {
   position: relative;
   display: flex;
   align-items: self-start;
+
 }
 
 
@@ -46,13 +61,14 @@
 .othersite {
 
   border: none;
-  object-fit: fill; /* Fix for iframe stretching */
+  object-fit: cover; /* Fix for iframe stretching */
+  width: 380px;
+  height: 200px;
 }
 
 .iframe-container {
   position: relative;
-  padding-bottom: 100%;
-  height: 0;
+  width:100%
 }
 
 
@@ -61,7 +77,7 @@
   font-family: monospace;
   overflow: hidden;
   border-right: .15em solid orange;
-  white-space: nowrap;
+  white-space: wrap;
   animation: typingmain 5s steps(30, end);
   overflow-wrap: break-word;
 }

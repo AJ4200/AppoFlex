@@ -4,14 +4,16 @@ interface OthersitesProps {
   name: string;
   url: string;
   github: string;
+  imgfile: string;
 }
 
-const Othersite: React.FC<OthersitesProps> = ({ name, url, github }) => {
+const Othersite: React.FC<OthersitesProps> = ({ name, url, github,imgfile}) => {
   return (
     <div className='othersite-card'>
       <a className='othersite-label' href={github}>{name}</a>
       <div className='iframe-container'>
-        <iframe className='othersite' title={name} src={url} />
+        <img  className='othersite' title={name} src={imgfile}>
+          </img>
       </div>
     </div>
   );
