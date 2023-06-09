@@ -8,7 +8,7 @@ import Othersite from "./Othersite";
       name: "CommonFunLib",
       url: "https://commonfunlib.onrender.com",
       github: "http://github.com",
-      imgfile:"CommonfunLib.png"
+      imgfile:"CommonFunLib.png"
     },
     {
       name: "CodeShifter",
