@@ -24,7 +24,7 @@
   border: 2px solid rgba(255, 255, 255, 0.125);
   height: calc(100vh - 2rem); /* Adjust the height to fit within the viewport */
   display: list-item;
-  overflow-y:scroll ;
+  overflow-y: scroll;
 }
 .otherproducts-card::-webkit-scrollbar {
   width: 5px;
@@ -36,7 +36,7 @@
 }
 
 .otherproducts-card::-webkit-scrollbar-thumb {
-  background: #ffffff;
+  background: rgba(255, 166, 0, 0.349);
   opacity: 0.5;
   border-radius: 0;
 }
@@ -44,42 +44,125 @@
   position: relative;
   display: flex;
   align-items: self-start;
-
+  padding: 0.5rem;
 }
 
-
 .othersite-label {
-  display: none; /* Initially hide label */
+  display: flex; /* Initially hide label */
   position: absolute;
   bottom: 1rem;
   left: 1rem;
   background-color: rgba(0, 0, 0, 0.7);
   color: #fff;
   padding: 0.5rem;
+  border: 2px solid rgba(255, 166, 0, 0.281);
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
+.othersite-label:hover {
+  display: flex; /* Initially hide label */
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
+  padding: 0.5rem;
+  transform: scale(1.5);
+  animation: pulse 2s infinite;
+  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 .othersite {
-
-  border: none;
+  border: 2px solid grey;
   object-fit: cover; /* Fix for iframe stretching */
   width: 380px;
   height: 200px;
+  transition: transform 0.5s ease-in-out; /* Added transition property */
+}
+
+.othersite:hover {
+  transform: scale(0.8);
+  margin-right: 0;
+  margin-top: 0;
+  border: none;
 }
 
 .iframe-container {
+  background-color: #ffffff09;
   position: relative;
-  width:100%
+  width: 100%;
+  pading-top: 1rem;
+  width: 380px;
+  height: 200px;
+  border: 2px solid grey;
 }
+
+.othersite-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  height: 150%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px); /* Adds a blurry effect to the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  border: none;
+  overflow-y: hidden;
+}
+
+.othersite-modal-container {
+  position: sticky;
+  z-index: 999;
+  border: 2px solid grey;
+  background-color: rgba(255, 255, 255, 0.096);
+  padding: 1rem;
+  text-align: center;
+  margin-top: -30rem;
+}
+
+.othersite-modal-icon {
+  display: block;
+  margin-bottom: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.othersite-modal-image {
+  border: 2px solid grey;
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.othersite-modal-label {
+  display: block;
+  margin-bottom: 10px;
+  color: black;
+  text-decoration: none;
+  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.othersite-modal-label:hover {
+  transform: scale(1.35);
+  text-shadow: 0px 0px 9px rgba(255, 255, 255, 1);
+}
+
+
 
 
 .typingeffect {
   color: #fff;
   font-family: monospace;
   overflow: hidden;
-  border-right: .15em solid orange;
+  border-right: 0.15em solid orange;
+  border-left: 0.15em solid orange;
   white-space: wrap;
-  animation: typingmain 5s steps(30, end);
+  animation: typingmain 3s steps(30, end);
   overflow-wrap: break-word;
+  padding: 1rem;
 }
 
 @keyframes typingmain {

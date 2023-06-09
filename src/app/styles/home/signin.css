@@ -35,7 +35,6 @@
   .input {
     width: 15rem;
     height: 40px;
-    border-radius: 5px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
     box-shadow: 4px 4px var(--main-color);
@@ -67,7 +66,7 @@
     cursor: pointer;
     width: 40px;
     height: 40px;
-    border-radius: 100%;
+    content: '\f1a0';
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
     box-shadow: 4px 4px var(--main-color);
@@ -78,11 +77,6 @@
     align-items: center;
   }
   
-  .icon {
-    width: 24px;
-    height: 24px;
-    fill: var(--main-color);
-  }
   
   .button-log:active,
   .button-confirm:active {
@@ -94,7 +88,6 @@
     margin: 50px auto 0 auto;
     width: 120px;
     height: 40px;
-    border-radius: 5px;
     border: 2px solid var(--main-color);
     background-color: var(--bg-color);
     box-shadow: 4px 4px var(--main-color);

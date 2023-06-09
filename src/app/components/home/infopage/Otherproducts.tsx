@@ -7,7 +7,7 @@ import Othersite from "./Othersite";
     {
       name: "CommonFunLib",
       url: "https://commonfunlib.onrender.com",
-      github: "http://github.com",
+      github: "blob:https://vercel.com/342aa0c3-b664-4899-915b-7724b6850b26",
       imgfile:"CommonFunLib.png"
     },
     {

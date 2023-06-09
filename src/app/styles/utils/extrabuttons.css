@@ -1,0 +1,79 @@
+.icon {
+    width: 80px;
+    height: 80px;
+    fill: #fff;
+    transition: transform 0.3s;
+    animation-play-state: paused;
+   
+  }
+  
+  .icon:hover {
+    transform: scale(1.2);
+     animation: pulse 2s infinite;
+  
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .exitmodal-button {
+    font-family: 'comic sans ms';
+    font-weight: bold;
+    color: grey;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 0px;
+    border: 2px solid #969696;
+    background: #ee6f0011;
+    transition: transform 0.5s linear;
+  }
+  
+  .exitmodal-button:hover {
+
+    cursor: pointer;
+    animation: spin 0.5s linear ; 
+    border-radius: 3rem;
+
+  }
+  .exitmodal-button:not(:hover) {
+
+    animation: unspin 0.5s linear ; 
+    border-radius: 0;
+
+  }
+  .exitmodal-button:after {
+    border-radius: 3rem;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+      border-radius: 0;
+     
+    }
+
+    100% {
+      transform: rotate(360deg);
+      border-radius: 3rem;
+    }
+  }
+  @keyframes unspin {
+    0% {
+      transform: rotate(360deg);
+      border-radius: 3rem;
+     
+    }
+
+    100% {
+      transform: rotate(0deg);
+      border-radius: 0;
+    }
+  }
