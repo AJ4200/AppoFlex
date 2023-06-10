@@ -27,7 +27,7 @@ const OthersiteModal: React.FC<OthersiteModalProps> = ({ name, url, github, imgf
           <img className='icon' src="https://particles.js.org/images/GitHub-Mark-120px-plus.png" alt="" />
         </a>
         <button className="exitmodal-button" onClick={handleonClosed}>
-          X
+        X
         </button>
       </div>
     </dialog>

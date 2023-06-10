@@ -12,7 +12,7 @@ export default function Home() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    },7000);
+    },7000); //7 s timeout
 
     return () => clearTimeout(timer);
   }, []);
@@ -25,8 +25,9 @@ export default function Home() {
       ) : (
   <><Navbar />
   <div className='home-container'>
-  <Infopage />
-  <Otherproducts />
+
+<Infopage />
+  <Otherproducts/> 
     
   </div>
 </>
