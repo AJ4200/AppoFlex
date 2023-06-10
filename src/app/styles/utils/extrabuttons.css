@@ -28,11 +28,11 @@
   .exitmodal-button {
     font-family: 'comic sans ms';
     font-weight: bold;
-    color: grey;
+    color: #ffa6006c;
     font-size: 14px;
     padding: 8px 12px;
     border-radius: 0px;
-    border: 2px solid #969696;
+    border: 2px solid #ffa6006c;
     background: #ee6f0011;
     transition: transform 0.5s linear;
   }

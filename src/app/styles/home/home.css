@@ -71,7 +71,7 @@
   transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .othersite {
-  border: 2px solid grey;
+  border: 2px solid #ffa6006c;
   object-fit: cover; /* Fix for iframe stretching */
   width: 380px;
   height: 200px;
@@ -89,10 +89,9 @@
   background-color: #ffffff09;
   position: relative;
   width: 100%;
-  pading-top: 1rem;
   width: 380px;
   height: 200px;
-  border: 2px solid grey;
+  border: 2px solid #ffa60081;
 }
 
 .othersite-modal {
@@ -115,7 +114,7 @@
 .othersite-modal-container {
   position: sticky;
   z-index: 999;
-  border: 2px solid grey;
+  border: 2px solid #ffa6006c;
   background-color: rgba(255, 255, 255, 0.096);
   padding: 1rem;
   text-align: center;
