@@ -68,21 +68,23 @@
   padding: 0.5rem;
   transform: scale(1.5);
   animation: pulse 2s infinite;
-  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .othersite {
   border: 2px solid #ffa6006c;
   object-fit: cover; /* Fix for iframe stretching */
   width: 380px;
   height: 200px;
-  transition: transform 0.5s ease-in-out; /* Added transition property */
+  transition: transform 1s ease-in-out; /* Added transition property */
+
 }
 
 .othersite:hover {
-  transform: scale(0.8);
+
   margin-right: 0;
   margin-top: 0;
   border: none;
+
+  animation: pulse2 2s infinite;
 }
 
 .iframe-container {
@@ -91,7 +93,7 @@
   width: 100%;
   width: 380px;
   height: 200px;
-  border: 2px solid #ffa60081;
+
 }
 
 .othersite-modal {
@@ -149,9 +151,6 @@
   text-shadow: 0px 0px 9px rgba(255, 255, 255, 1);
 }
 
-
-
-
 .typingeffect {
   color: #fff;
   font-family: monospace;
@@ -163,6 +162,38 @@
   overflow-wrap: break-word;
   padding: 1rem;
 }
+@media (max-width: 768px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .infopage {
+    width: 100%;
+  }
+  
+  .otherproducts-card {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+  
+  .othersite {
+    width: 100%;
+    height: 200px;
+    max-width: none;
+  }
+  
+  .iframe-container {
+    width: 100%;
+    height: 200px;
+  }
+  
+  .othersite-modal-container {
+    margin-top: -10rem;
+  }
+}
 
 @keyframes typingmain {
   from {
@@ -171,4 +202,20 @@
   to {
     width: 100%;
   }
+}
+@keyframes pulse2 {
+  0% {
+    transform: scale(1);
+    border: 2px solid #ffa6006c;
+  }
+
+  50% {
+   transform: scale(0.95);
+   border: 2px solid #ffa600d8;
+  }
+
+  100% {
+    transform: scale(1);
+    border: 2px solid #ffa6006c;
+   }
 }
