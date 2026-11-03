@@ -172,7 +172,7 @@
 
 .btn-close:hover {
   animation: spin 0.5s linear;
-  border-radius: 3rem;
+  border-radius: 0;
 }
 
 .btn-close:not(:hover) {

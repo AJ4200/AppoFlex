@@ -45,14 +45,14 @@
   }
   100% {
     transform: rotate(360deg);
-    border-radius: 3rem;
+    border-radius: 0;
   }
 }
 
 @keyframes unspin {
   0% {
     transform: rotate(360deg);
-    border-radius: 3rem;
+    border-radius: 0;
   }
   100% {
     transform: rotate(0deg);

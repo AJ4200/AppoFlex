@@ -1,6 +1,5 @@
 import Link from "next/link";
 import FlipLink from "@/components/ui/FlipLink";
-import SplashGate from "@/components/splash/SplashGate";
 import { getCurrentUser } from "@/lib/auth";
 
 const FEATURES = [
@@ -34,7 +33,6 @@ export default async function HomePage() {
   const user = await getCurrentUser();
 
   return (
-    <SplashGate>
     <main className="page">
       <div className="home-container">
         <section className="infopage glass">
@@ -81,6 +79,5 @@ export default async function HomePage() {
         </section>
       </div>
     </main>
-    </SplashGate>
   );
 }

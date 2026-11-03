@@ -1,0 +1,88 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}
+
+.site-footer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  width: min(1100px, calc(100% - 24px));
+  margin: var(--space-4) auto 12px;
+  padding: 14px 20px;
+  border: 2px solid white;
+  color: #fff;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  background-color: var(--glass-bg);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.heart {
+  color: #ff4d6d;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.footer-icon {
+  display: inline-flex;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.footer-icon:hover,
+.eula:hover .footer-icon,
+.eula:focus-within .footer-icon {
+  color: var(--accent);
+}
+
+.eula {
+  position: relative;
+  display: inline-flex;
+  outline: none;
+}
+
+.eula-text {
+  position: absolute;
+  bottom: calc(100% + 16px);
+  right: 0;
+  width: min(360px, 80vw);
+  padding: 14px;
+  border: 2px solid white;
+  background: rgba(10, 12, 16, 0.95);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  z-index: 50;
+}
+
+.eula-text p {
+  margin: 6px 0 0;
+}
+
+.eula:hover .eula-text,
+.eula:focus .eula-text,
+.eula:focus-within .eula-text {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}

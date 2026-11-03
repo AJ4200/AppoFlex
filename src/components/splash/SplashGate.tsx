@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "appoflex-splash-seen";
 const SPLASH_MS = 5000;
 
 type Phase = "checking" | "splash" | "done";
@@ -12,11 +11,7 @@ export default function SplashGate({ children }: { children: React.ReactNode }) 
   const [showLoader, setShowLoader] = useState(false);
 
   useEffect(() => {
-    let seen = false;
-    try {
-      seen = sessionStorage.getItem(STORAGE_KEY) === "1";
-    } catch {}
-    if (seen || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setPhase("done");
       return;
     }
@@ -30,9 +25,6 @@ export default function SplashGate({ children }: { children: React.ReactNode }) 
   }, []);
 
   function finishSplash() {
-    try {
-      sessionStorage.setItem(STORAGE_KEY, "1");
-    } catch {}
     setPhase("done");
   }
 

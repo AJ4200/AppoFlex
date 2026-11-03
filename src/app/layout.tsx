@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "animate.css";
 import "@/styles/index.css";
 import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import SplashGate from "@/components/splash/SplashGate";
 import Splashbackground from "@/components/splash/Splashbackground";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,8 +20,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <Splashbackground />
-        <Navbar />
-        {children}
+        <SplashGate>
+          <div className="app-shell">
+            <Navbar />
+            <div className="app-content">{children}</div>
+            <Footer />
+          </div>
+        </SplashGate>
       </body>
     </html>
   );
