@@ -1,33 +1,29 @@
-import { neon, neonConfig } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 import * as schema from "./schema";
 
 type Db = ReturnType<typeof createDb>;
-
-// Neon suspends idle databases; the request that wakes one can fail with a network error.
-// Retrying only on thrown network errors (never on HTTP responses) is safe for writes.
-const RETRIES = 5;
-neonConfig.fetchFunction = async (input: RequestInfo | URL, init?: RequestInit) => {
-  let lastError: unknown;
-  for (let attempt = 0; attempt <= RETRIES; attempt++) {
-    try {
-      return await fetch(input, init);
-    } catch (error) {
-      lastError = error;
-      if (init?.signal?.aborted) break;
-      console.warn(`[db] network error, attempt ${attempt + 1}/${RETRIES + 1}:`, (error as Error)?.cause ?? error);
-      await new Promise((resolve) => setTimeout(resolve, Math.min(300 * 2 ** attempt, 3000)));
-    }
-  }
-  throw lastError;
-};
 
 function createDb() {
   const url = process.env.DATABASE_URL;
   if (!url) {
     throw new Error("DATABASE_URL is not set. Copy .env.example to .env.local and fill it in.");
   }
-  return drizzle(neon(url), { schema });
+
+  // Neon needs TLS. sslmode is handled here so the driver doesn't apply its own interpretation.
+  const connectionString = url.replace(/([?&])sslmode=[^&]*&?/, "$1").replace(/[?&]$/, "");
+  const pool = new Pool({
+    connectionString,
+    ssl: { rejectUnauthorized: true },
+    max: 10,
+    idleTimeoutMillis: 30_000,
+    // Generous enough for Neon to wake a suspended database
+    connectionTimeoutMillis: 20_000,
+  });
+  // Idle connections are dropped by Neon; without a handler this would crash the process
+  pool.on("error", (error) => console.warn("[db] idle connection error:", error.message));
+
+  return drizzle(pool, { schema });
 }
 
 const globalForDb = globalThis as unknown as { __db?: Db };
