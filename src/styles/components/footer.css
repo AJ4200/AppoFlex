@@ -46,6 +46,11 @@
   transition: color 0.2s;
 }
 
+.footer-icon--inline {
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
 .footer-icon:hover,
 .eula:hover .footer-icon,
 .eula:focus-within .footer-icon {
