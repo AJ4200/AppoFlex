@@ -49,6 +49,12 @@
 .footer-icon--inline {
   vertical-align: middle;
   margin-left: 6px;
+  color: var(--accent);
+}
+
+.footer-icon--inline svg {
+  width: 1.1em;
+  height: 1.1em;
 }
 
 .footer-icon:hover,
