@@ -1,34 +1,51 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AppoFlex
 
-## Getting Started
+Flexible appointment management for clients and service providers (hairdressers, barbers, clinics and more).
 
-First, run the development server:
+- **No overlaps**: every service has a duration; a PostgreSQL exclusion constraint guarantees a provider is never double booked.
+- **Real-time alerts**: in-app notifications for bookings, reschedules, cancellations and delays.
+- **Running late?** Providers report an overrun and every affected client is told, with the next free slot suggested.
+- **Messaging** per appointment.
+- **AI (Groq)**: describe a booking in plain words, draft service descriptions and polish messages.
+
+## Stack
+
+Next.js (App Router) · React 19 · Neon PostgreSQL · Drizzle ORM · Groq · pnpm
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+cp .env.example .env.local   # fill in DATABASE_URL, SESSION_SECRET, GROQ_API_KEY
+pnpm db:migrate              # applies the SQL in ./drizzle to your Neon database
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project layout
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
+src/
+  app/            routes: (auth) sign in/up, (app) dashboard, providers, appointments, notifications, api
+  components/     layout, auth, booking, appointments, provider and ui building blocks
+  db/             Drizzle schema and Neon client
+  lib/            auth, scheduling engine, time zones, Groq, notifications
+  styles/         tokens, base, animations and component styles (see styles/index.css)
+drizzle/          SQL migrations (including the overlap guard)
+```
 
-## Learn More
+## Styling
 
-To learn more about Next.js, take a look at the following resources:
+All styles live in `src/styles` and are imported once through `styles/index.css`. Design tokens
+(`tokens.css`) drive the glass panels, flip buttons (`.btn-flip`), confirm buttons (`.btn-confirm`)
+and form inputs (`.form`, `.input`) that are reused across every page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| Script | Purpose |
+| --- | --- |
+| `pnpm dev` / `build` / `start` | Next.js |
+| `pnpm lint` | ESLint |
+| `pnpm db:generate` | Generate a migration after editing `src/db/schema.ts` |
+| `pnpm db:migrate` | Apply migrations to the database in `DATABASE_URL` |
