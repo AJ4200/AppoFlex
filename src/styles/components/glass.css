@@ -1,0 +1,24 @@
+.glass {
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  background-color: var(--glass-bg);
+  border: 2px solid var(--glass-border);
+}
+
+.glass--outlined {
+  border-color: var(--main-color);
+}
+
+.glass--warm {
+  background-color: rgba(82, 65, 54, 0.226);
+}
+
+.panel {
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+}
+
+.panel > h2:first-child,
+.panel > h3:first-child {
+  margin-top: 0;
+}

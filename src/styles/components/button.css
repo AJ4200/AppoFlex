@@ -1,0 +1,191 @@
+/* Flip button: label comes from the data-label attribute */
+.btn-flip {
+  padding: 0.9em 1.8em;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 4px;
+  color: transparent;
+  border: 3px solid rgb(255, 255, 255);
+  font-size: 14px;
+  position: relative;
+  font-family: inherit;
+  background: transparent;
+  border-radius: 0;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.btn-flip::before,
+.btn-flip::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.btn-flip::before {
+  left: 0;
+  color: rgb(255, 255, 255);
+}
+
+.btn-flip::after {
+  left: -100%;
+  color: var(--accent);
+  transform: scale(0) rotateY(0deg);
+  opacity: 0;
+}
+
+.btn-flip:hover::before {
+  left: 100%;
+  transform: scale(0) rotateY(360deg);
+  opacity: 0;
+}
+
+.btn-flip:hover::after {
+  left: 0;
+  transform: scale(1) rotateY(360deg);
+  opacity: 1;
+}
+
+.btn-flip--alt::before {
+  color: var(--accent);
+}
+
+.btn-flip--alt::after {
+  left: 100%;
+  color: rgb(255, 255, 255);
+}
+
+.btn-flip--alt:hover::before {
+  left: -100%;
+}
+
+/* Solid confirm button used by forms */
+.btn-confirm {
+  min-width: 120px;
+  height: 40px;
+  padding: 0 1rem;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.btn-confirm:hover:not(:disabled) {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-confirm:active:not(:disabled) {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+
+.btn-confirm:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-confirm--sm {
+  min-width: 0;
+  height: 32px;
+  font-size: 14px;
+  box-shadow: 3px 3px var(--main-color);
+}
+
+.btn-confirm--danger {
+  border-color: var(--danger);
+  color: var(--danger);
+  box-shadow: 4px 4px var(--danger);
+}
+
+.btn-confirm--danger:hover:not(:disabled) {
+  color: #fff;
+  border-color: var(--danger);
+}
+
+.btn-confirm--block {
+  display: flex;
+  width: 100%;
+}
+
+/* Square icon button (social logins, bell, etc.) */
+.btn-icon {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  color: var(--font-color);
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.btn-icon:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+
+.btn-icon:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btn-icon .badge-dot {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
+
+/* Spinning close button */
+.btn-close {
+  font-family: "comic sans ms", monospace;
+  font-weight: bold;
+  color: #ffa6006c;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 0px;
+  border: 2px solid #ffa6006c;
+  background: #ee6f0011;
+  transition: transform 0.5s linear;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  animation: spin 0.5s linear;
+  border-radius: 3rem;
+}
+
+.btn-close:not(:hover) {
+  animation: unspin 0.5s linear;
+  border-radius: 0;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+}
