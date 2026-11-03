@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type RefObject } from "react";`nimport Icon from "./Icon";
+import { useState, type RefObject } from "react";
+import Icon from "./Icon";
 
 type Props = {
   kind: "service-description" | "message";
@@ -12,7 +13,7 @@ type Props = {
   label?: string;
 };
 
-export default function AiDraftButton({ kind, formRef, targetName, context, label = "✨ Draft with AI" }: Props) {
+export default function AiDraftButton({ kind, formRef, targetName, context, label = "Draft with AI" }: Props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 

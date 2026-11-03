@@ -2,7 +2,8 @@
 
 import { useActionState, useState } from "react";
 import { bookAppointmentAction, type AppointmentState } from "@/app/(app)/appointments/actions";
-import Icon from "@/components/ui/Icon";`nimport SubmitButton from "@/components/ui/SubmitButton";
+import Icon from "@/components/ui/Icon";
+import SubmitButton from "@/components/ui/SubmitButton";
 import { formatPrice } from "@/lib/time";
 import SlotPicker from "./SlotPicker";
 
@@ -64,7 +65,7 @@ export default function BookingPanel({
   return (
     <div className="stack">
       <section className="panel glass">
-        <h2>✨ Ask the assistant</h2>
+        <h2><Icon name="sparkle" /> Ask the assistant</h2>
         <p className="muted">Describe what you need, e.g. &ldquo;a trim next Tuesday afternoon&rdquo;.</p>
         <div className="row">
           <input

@@ -22,7 +22,7 @@ export default function MessageComposer({ appointmentId, summary }: { appointmen
       <label className="sr-only" htmlFor="message-body">Message</label>
       <textarea id="message-body" name="body" className="input" style={{ width: "100%" }} maxLength={1000} placeholder="Write a message..." required />
       <div className="row row--between">
-        <AiDraftButton kind="message" formRef={formRef} targetName="body" context={{ summary }} label="✨ Polish with AI" />
+        <AiDraftButton kind="message" formRef={formRef} targetName="body" context={{ summary }} label="Polish with AI" />
         <SubmitButton className="btn-confirm--sm" pendingLabel="Sending...">Send</SubmitButton>
       </div>
     </form>

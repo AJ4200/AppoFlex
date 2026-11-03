@@ -55,7 +55,7 @@ export default async function ProvidersPage({
               <h3>{p.businessName}</h3>
               <span className="badge" style={{ alignSelf: "flex-start" }}>{p.businessType}</span>
               {p.description && <p className="muted">{p.description}</p>}
-              <p className="accent">{p.serviceCount} service{p.serviceCount === 1 ? "" : "s"} →</p>
+              <p className="accent">{p.serviceCount} service{p.serviceCount === 1 ? "" : "s"} <Icon name="arrow" /></p>
             </Link>
           ))}
         </div>
