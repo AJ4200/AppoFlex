@@ -91,7 +91,9 @@ export const appointments = pgTable(
     endsAt: timestamp("ends_at", { withTimezone: true }).notNull(),
     status: appointmentStatusEnum("status").notNull().default("scheduled"),
     notes: text("notes").notNull().default(""),
-    // Minutes the provider is running behind for this appointment
+    // Minutes the provider reported this appointment is running over
+    overrunMinutes: integer("overrun_minutes").notNull().default(0),
+    // Derived: expected start delay, caused by earlier appointments running over
     delayMinutes: integer("delay_minutes").notNull().default(0),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },

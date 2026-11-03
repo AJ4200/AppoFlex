@@ -9,6 +9,7 @@ CREATE TABLE "appointments" (
 	"ends_at" timestamp with time zone NOT NULL,
 	"status" "appointment_status" DEFAULT 'scheduled' NOT NULL,
 	"notes" text DEFAULT '' NOT NULL,
+	"overrun_minutes" integer DEFAULT 0 NOT NULL,
 	"delay_minutes" integer DEFAULT 0 NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );

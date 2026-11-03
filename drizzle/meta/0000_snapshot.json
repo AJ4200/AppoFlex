@@ -1,5 +1,5 @@
 {
-  "id": "ac5531b0-1a5c-4730-8721-2eb8c4fed562",
+  "id": "3894613b-ffb9-43a4-a1be-2b59411f3049",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -59,6 +59,13 @@
           "primaryKey": false,
           "notNull": true,
           "default": "''"
+        },
+        "overrun_minutes": {
+          "name": "overrun_minutes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
         },
         "delay_minutes": {
           "name": "delay_minutes",
