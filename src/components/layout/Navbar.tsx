@@ -25,6 +25,7 @@ export default async function Navbar() {
     } else {
       links.push({ href: "/providers", label: "Find a provider" });
     }
+    links.push({ href: "/profile", label: "Profile" });
   }
 
   return (

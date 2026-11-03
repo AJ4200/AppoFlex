@@ -6,7 +6,7 @@ type Db = ReturnType<typeof createDb>;
 
 // Neon suspends idle databases; the request that wakes one can fail with a network error.
 // Retrying only on thrown network errors (never on HTTP responses) is safe for writes.
-const RETRIES = 3;
+const RETRIES = 5;
 neonConfig.fetchFunction = async (input: RequestInfo | URL, init?: RequestInit) => {
   let lastError: unknown;
   for (let attempt = 0; attempt <= RETRIES; attempt++) {
@@ -14,7 +14,9 @@ neonConfig.fetchFunction = async (input: RequestInfo | URL, init?: RequestInit) 
       return await fetch(input, init);
     } catch (error) {
       lastError = error;
-      await new Promise((resolve) => setTimeout(resolve, 400 * (attempt + 1)));
+      if (init?.signal?.aborted) break;
+      console.warn(`[db] network error, attempt ${attempt + 1}/${RETRIES + 1}:`, (error as Error)?.cause ?? error);
+      await new Promise((resolve) => setTimeout(resolve, Math.min(300 * 2 ** attempt, 3000)));
     }
   }
   throw lastError;

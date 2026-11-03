@@ -35,6 +35,11 @@
   padding: var(--space-4) var(--space-3) var(--space-5);
 }
 
+.profile-stack {
+  align-items: center;
+  gap: var(--space-4);
+}
+
 .page-title {
   margin-bottom: var(--space-4);
 }

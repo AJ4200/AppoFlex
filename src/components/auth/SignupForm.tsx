@@ -5,6 +5,7 @@ import { useActionState, useEffect, useState } from "react";
 import { signupAction, type AuthState } from "@/app/(auth)/actions";
 import Icon from "@/components/ui/Icon";
 import Field from "@/components/ui/Field";
+import Checkbox from "@/components/ui/Checkbox";
 import SubmitButton from "@/components/ui/SubmitButton";
 import { BUSINESS_TYPES } from "@/lib/constants";
 
@@ -138,6 +139,11 @@ export default function SignupForm() {
           <input type="hidden" name="timezone" value={timezone} />
         </>
       )}
+
+      <Checkbox name="acceptEula" error={state.fieldErrors?.acceptEula} defaultChecked={state.values?.acceptEula === "on"} required>
+        I have read and agree to the{" "}
+        <Link href="/legal/eula" target="_blank">End User Licence Agreement</Link>
+      </Checkbox>
 
       <SubmitButton pendingLabel="Creating account...">Sign up <Icon name="arrow" /></SubmitButton>
       <p className="form-footer">
