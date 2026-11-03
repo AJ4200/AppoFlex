@@ -1,7 +1,9 @@
 header {
   position: sticky;
-  top: 0;
+  top: 12px;
   z-index: 999;
+  margin: 12px auto 0;
+  width: min(1100px, calc(100% - 24px));
 }
 
 .navbar {
@@ -12,6 +14,8 @@ header {
   gap: var(--space-3);
   padding: 20px;
   border: 2px solid white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   color: #fff;
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
