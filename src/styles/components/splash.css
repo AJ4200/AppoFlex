@@ -138,21 +138,38 @@
     scale-up 3.5s forwards;
 }
 
-.splashloader {
-  position: fixed;
-  width: 50px;
-  height: 50px;
+.splashloader,
+.loader {
+  --s: 50px;
+  width: var(--s);
+  height: var(--s);
   display: grid;
   color: orange;
+}
+
+.splashloader {
+  position: fixed;
   z-index: 1;
   bottom: 15%;
 }
 
+.loader {
+  --s: 1.4em;
+  display: inline-grid;
+  vertical-align: middle;
+}
+
+.btn-confirm .loader {
+  color: currentColor;
+}
+
 .splashloader:before,
-.splashloader:after {
+.splashloader:after,
+.loader:before,
+.loader:after {
   content: "";
   grid-area: 1/1;
-  margin: 0 0 15px 15px;
+  margin: 0 0 calc(var(--s) * 0.3) calc(var(--s) * 0.3);
   --c1: linear-gradient(90deg, #0000 calc(100% / 3), currentColor 0 calc(2 * 100% / 3), #0000 0);
   --c2: linear-gradient(0deg, #0000 calc(100% / 3), currentColor 0 calc(2 * 100% / 3), #0000 0);
   background: var(--c1), var(--c2), var(--c1), var(--c2);
@@ -161,8 +178,14 @@
   animation: l2 2s infinite linear;
 }
 
-.splashloader:after {
-  margin: 15px 15px 0 0;
+.loader:before,
+.loader:after {
+  background-size: 300% 2px, 2px 300%;
+}
+
+.splashloader:after,
+.loader:after {
+  margin: calc(var(--s) * 0.3) calc(var(--s) * 0.3) 0 0;
   transform: scale(-1, -1);
 }
 

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { BOOKING_HORIZON_DAYS } from "@/lib/constants";
+import Loader from "@/components/ui/Loader";
 
 type Slot = { startsAt: string; endsAt: string };
 
@@ -89,7 +90,7 @@ export default function SlotPicker({
       </div>
 
       <div aria-live="polite">
-        {status === "loading" && <p className="muted">Finding free times...</p>}
+        {status === "loading" && <Loader label="Finding free times" />}
         {status === "error" && <p className="form-error">Could not load times. Try again.</p>}
         {status === "idle" && slots.length === 0 && (
           <p className="muted">No free times on this day. Try another date.</p>

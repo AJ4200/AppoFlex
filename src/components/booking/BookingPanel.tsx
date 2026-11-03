@@ -3,6 +3,7 @@
 import { useActionState, useState } from "react";
 import { bookAppointmentAction, type AppointmentState } from "@/app/(app)/appointments/actions";
 import Icon from "@/components/ui/Icon";
+import Loader from "@/components/ui/Loader";
 import SubmitButton from "@/components/ui/SubmitButton";
 import { formatPrice } from "@/lib/time";
 import SlotPicker from "./SlotPicker";
@@ -84,7 +85,7 @@ export default function BookingPanel({
             aria-label="Describe what you want to book"
           />
           <button type="button" className="btn-confirm btn-confirm--sm" onClick={askAssistant} disabled={aiBusy}>
-            {aiBusy ? "Thinking..." : "Suggest"}
+            {aiBusy ? <Loader label="Thinking" /> : "Suggest"}
           </button>
         </div>
         {aiNote && <p className="timeline-note" role="status">{aiNote}</p>}

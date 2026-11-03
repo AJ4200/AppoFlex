@@ -2,6 +2,7 @@
 
 import { useState, type RefObject } from "react";
 import Icon from "./Icon";
+import Loader from "./Loader";
 
 type Props = {
   kind: "service-description" | "message";
@@ -49,7 +50,7 @@ export default function AiDraftButton({ kind, formRef, targetName, context, labe
   return (
     <div className="row">
       <button type="button" className="btn-confirm btn-confirm--sm" onClick={draft} disabled={loading}>
-        <Icon name="sparkle" /> {loading ? "Thinking..." : label}
+        <Icon name="sparkle" /> {loading ? <Loader label="Thinking" /> : label}
       </button>
       {error && <span className="field-error">{error}</span>}
     </div>

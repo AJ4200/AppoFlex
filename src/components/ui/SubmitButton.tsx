@@ -1,10 +1,11 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
+import Loader from "./Loader";
 
 export default function SubmitButton({
   children,
-  pendingLabel = "Please wait...",
+  pendingLabel = "Please wait",
   className = "",
 }: {
   children: React.ReactNode;
@@ -13,8 +14,8 @@ export default function SubmitButton({
 }) {
   const { pending } = useFormStatus();
   return (
-    <button type="submit" className={`btn-confirm ${className}`} disabled={pending}>
-      {pending ? pendingLabel : children}
+    <button type="submit" className={`btn-confirm ${className}`} disabled={pending} aria-busy={pending}>
+      {pending ? <Loader label={pendingLabel} /> : children}
     </button>
   );
 }
