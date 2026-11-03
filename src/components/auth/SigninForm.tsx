@@ -44,7 +44,7 @@ export default function SigninForm({ next }: { next?: string }) {
         error={state.fieldErrors?.password}
         required
       />
-      <SubmitButton pendingLabel="Signing in...">Sign in →</SubmitButton>
+      <SubmitButton pendingLabel="Signing in...">Sign in <Icon name="arrow" /></SubmitButton>
       <p className="form-footer">
         New to AppoFlex? <Link href="/signup">Create an account</Link>
       </p>

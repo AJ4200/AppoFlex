@@ -1,3 +1,33 @@
+.flip-scene.flip-out {
+  animation: flip-out 0.25s ease-in forwards;
+}
+
+.flip-scene.flip-in {
+  animation: flip-in 0.25s ease-out;
+}
+
+@keyframes flip-out {
+  to {
+    transform: perspective(1200px) rotateY(90deg);
+  }
+}
+
+@keyframes flip-in {
+  from {
+    transform: perspective(1200px) rotateY(-90deg);
+  }
+  to {
+    transform: perspective(1200px) rotateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-scene.flip-out,
+  .flip-scene.flip-in {
+    animation: none;
+  }
+}
+
 .page {
   width: 100%;
   max-width: var(--page-width);

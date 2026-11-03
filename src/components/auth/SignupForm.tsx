@@ -16,12 +16,24 @@ export default function SignupForm() {
     state.values?.role === "provider" ? "provider" : "client",
   );
   const [timezone, setTimezone] = useState("UTC");
+  const [flip, setFlip] = useState<"" | "flip-out" | "flip-in">("");
+
+  function switchRole(next: "client" | "provider") {
+    if (next === role || flip) return;
+    setFlip("flip-out");
+    setTimeout(() => {
+      setRole(next);
+      setFlip("flip-in");
+      setTimeout(() => setFlip(""), 250);
+    }, 250);
+  }
 
   useEffect(() => {
     setTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC");
   }, []);
 
   return (
+    <div className={`flip-scene ${flip}`}>
     <form className="form animate__animated animate__backInRight" action={action} noValidate>
       <div className="title">
         Welcome,
@@ -43,7 +55,7 @@ export default function SignupForm() {
               name="role"
               value={value}
               checked={role === value}
-              onChange={() => setRole(value)}
+              onChange={() => switchRole(value)}
             />
             <span>{value === "client" ? "I book appointments" : "I offer services"}</span>
           </label>
@@ -127,10 +139,11 @@ export default function SignupForm() {
         </>
       )}
 
-      <SubmitButton pendingLabel="Creating account...">Sign up →</SubmitButton>
+      <SubmitButton pendingLabel="Creating account...">Sign up <Icon name="arrow" /></SubmitButton>
       <p className="form-footer">
         Already have an account? <Link href="/signin">Sign in</Link>
       </p>
     </form>
+    </div>
   );
 }
