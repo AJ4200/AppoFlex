@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type RefObject } from "react";
+import { useState, type RefObject } from "react";`nimport Icon from "./Icon";
 
 type Props = {
   kind: "service-description" | "message";
@@ -48,7 +48,7 @@ export default function AiDraftButton({ kind, formRef, targetName, context, labe
   return (
     <div className="row">
       <button type="button" className="btn-confirm btn-confirm--sm" onClick={draft} disabled={loading}>
-        {loading ? "Thinking..." : label}
+        <Icon name="sparkle" /> {loading ? "Thinking..." : label}
       </button>
       {error && <span className="field-error">{error}</span>}
     </div>

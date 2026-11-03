@@ -2,7 +2,7 @@
 
 import { useActionState, useState } from "react";
 import { bookAppointmentAction, type AppointmentState } from "@/app/(app)/appointments/actions";
-import SubmitButton from "@/components/ui/SubmitButton";
+import Icon from "@/components/ui/Icon";`nimport SubmitButton from "@/components/ui/SubmitButton";
 import { formatPrice } from "@/lib/time";
 import SlotPicker from "./SlotPicker";
 

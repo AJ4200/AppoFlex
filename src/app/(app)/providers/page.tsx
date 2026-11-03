@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { and, asc, eq, sql } from "drizzle-orm";
 import { db, providers, services } from "@/db";
+import Icon from "@/components/ui/Icon";
 import { requireUser } from "@/lib/auth";
 
 export const metadata: Metadata = { title: "Find a provider" };

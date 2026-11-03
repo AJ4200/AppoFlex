@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { signoutAction } from "@/app/(auth)/actions";
-import FlipLink from "@/components/ui/FlipLink";
+import Icon from "@/components/ui/Icon";
 import Hamburger from "./Hamburger";
 import Logo from "./Logo";
 
@@ -35,7 +35,7 @@ export default function NavMenu({ links, signedIn, unread }: NavMenuProps) {
 
   const bell = signedIn && (
     <Link href="/notifications" className="btn-icon" aria-label={`Notifications (${unread} unread)`}>
-      <span aria-hidden="true">🔔</span>
+      <Icon name="bell" size="1.3rem" />
       {unread > 0 && <span className="badge-dot">{unread > 9 ? "9+" : unread}</span>}
     </Link>
   );
@@ -57,20 +57,10 @@ export default function NavMenu({ links, signedIn, unread }: NavMenuProps) {
       <ul className="nav-links">{items.map((item) => <li key={item.key}>{item}</li>)}</ul>
 
       <div className="buttons-container">
-        {signedIn ? (
+        {signedIn && (
           <>
             {bell}
             {signout}
-          </>
-        ) : (
-          <>
-            <FlipLink href="/signin" label="Sign In" className="animate__animated animate__backInLeft" />
-            <FlipLink
-              href="/signup"
-              label="Sign Up"
-              variant="alt"
-              className="animate__animated animate__backInRight"
-            />
           </>
         )}
       </div>
@@ -81,19 +71,10 @@ export default function NavMenu({ links, signedIn, unread }: NavMenuProps) {
         {items.map((item) => (
           <li key={item.key}>{item}</li>
         ))}
-        {signedIn ? (
+        {signedIn && (
           <>
             <li>{bell}</li>
             <li>{signout}</li>
-          </>
-        ) : (
-          <>
-            <li>
-              <FlipLink href="/signin" label="Sign In" />
-            </li>
-            <li>
-              <FlipLink href="/signup" label="Sign Up" variant="alt" />
-            </li>
           </>
         )}
       </ul>

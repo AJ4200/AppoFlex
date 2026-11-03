@@ -36,6 +36,31 @@ header {
   animation: typing 3.5s steps(30, end);
 }
 
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-mark {
+  color: var(--accent);
+  flex: none;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: -0.15em;
+  flex: none;
+}
+
+.btn-icon .icon {
+  color: #fff;
+}
+
+.btn-confirm .icon {
+  margin-inline: 4px;
+}
+
 .nav-links {
   display: flex;
   gap: var(--space-4);

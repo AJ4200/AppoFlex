@@ -1,30 +1,37 @@
 import Link from "next/link";
 import FlipLink from "@/components/ui/FlipLink";
+import Icon from "@/components/ui/Icon";
 import { getCurrentUser } from "@/lib/auth";
 
 const FEATURES = [
   {
     title: "No overlaps, ever",
+    icon: "calendar" as const,
     body: "Every service has its own duration, so each appointment gets exactly the time it needs and double bookings are impossible.",
   },
   {
     title: "Real-time alerts",
+    icon: "bell" as const,
     body: "Clients and providers are notified the moment anything changes: new bookings, reschedules, cancellations and delays.",
   },
   {
     title: "Running late? Tell everyone",
+    icon: "clock" as const,
     body: "When an appointment runs over, the next customers are alerted automatically and offered the next available slot.",
   },
   {
     title: "Easy rescheduling",
+    icon: "edit" as const,
     body: "Move or cancel an appointment in a couple of clicks. Both sides stay in sync without any phone tag.",
   },
   {
     title: "Built-in messaging",
+    icon: "message" as const,
     body: "Discuss requirements and preferences before, during and after an appointment, all in one thread.",
   },
   {
     title: "AI assistance",
+    icon: "sparkle" as const,
     body: "Describe what you need in plain words and let the assistant find the right service, or draft polite messages for you.",
   },
 ];
@@ -57,7 +64,9 @@ export default async function HomePage() {
         <section className="grid" aria-label="Features">
           {FEATURES.map((feature) => (
             <article key={feature.title} className="feature-card glass glass--warm">
-              <h3>{feature.title}</h3>
+              <h3>
+                <Icon name={feature.icon} className="accent" /> {feature.title}
+              </h3>
               <p>{feature.body}</p>
             </article>
           ))}

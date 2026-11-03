@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useActionState } from "react";
 import { signinAction, type AuthState } from "@/app/(auth)/actions";
+import Icon from "@/components/ui/Icon";
 import Field from "@/components/ui/Field";
 import SubmitButton from "@/components/ui/SubmitButton";
 

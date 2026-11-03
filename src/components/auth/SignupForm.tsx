@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useActionState, useEffect, useState } from "react";
 import { signupAction, type AuthState } from "@/app/(auth)/actions";
+import Icon from "@/components/ui/Icon";
 import Field from "@/components/ui/Field";
 import SubmitButton from "@/components/ui/SubmitButton";
 import { BUSINESS_TYPES } from "@/lib/constants";
