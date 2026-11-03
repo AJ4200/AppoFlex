@@ -21,9 +21,10 @@ export async function complete({
   client ??= new Groq({ apiKey: process.env.GROQ_API_KEY });
 
   const response = await client.chat.completions.create({
-    model: process.env.GROQ_MODEL ?? "llama-3.3-70b-versatile",
+    model: process.env.GROQ_MODEL ?? "openai/gpt-oss-120b",
     temperature: json ? 0 : 0.6,
-    max_tokens: maxTokens,
+    max_tokens: maxTokens + 800,
+    reasoning_effort: "low",
     ...(json ? { response_format: { type: "json_object" as const } } : {}),
     messages: [
       { role: "system", content: system },
