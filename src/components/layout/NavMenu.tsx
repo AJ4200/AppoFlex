@@ -65,7 +65,10 @@ export default function NavMenu({ links, signedIn, unread }: NavMenuProps) {
         )}
       </div>
 
-      <Hamburger isMenuOpen={open} toggleMenu={() => setOpen((v) => !v)} />
+      <div className="mobile-actions">
+        {bell}
+        <Hamburger isMenuOpen={open} toggleMenu={() => setOpen((v) => !v)} />
+      </div>
 
       <ul className="menu-list">
         {items.map((item) => (
@@ -73,7 +76,6 @@ export default function NavMenu({ links, signedIn, unread }: NavMenuProps) {
         ))}
         {signedIn && (
           <>
-            <li>{bell}</li>
             <li>{signout}</li>
           </>
         )}
