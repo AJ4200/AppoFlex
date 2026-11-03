@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="site-footer">
@@ -19,13 +21,19 @@ export default function Footer() {
         </a>
       </p>
       <div className="footer-icons">
-        <div className="eula" tabIndex={0}>
-          <span className="footer-icon" aria-label="End user licence agreement">
+        <nav className="footer-links" aria-label="Legal">
+          <Link href="/legal/privacy">Privacy</Link>
+          <Link href="/legal/cookies">Cookies</Link>
+          <Link href="/legal/cache">Cache</Link>
+          <Link href="/legal/terms">Terms</Link>
+        </nav>
+        <div className="eula">
+          <Link href="/legal/eula" className="footer-icon" aria-label="End user licence agreement">
             <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <path d="M6 2h9l5 5v15H6z" />
               <path d="M14 2v6h6M9 13h8M9 17h8" />
             </svg>
-          </span>
+          </Link>
           <div className="eula-text" role="tooltip">
             <strong>End User Licence Agreement</strong>
             <p>
@@ -36,6 +44,7 @@ export default function Footer() {
               parties. AI features send the text you submit to Groq for processing. We may suspend
               accounts that abuse the platform. All rights reserved &copy; AJ4200.
             </p>
+            <Link href="/legal/eula" className="accent">Read the full agreement</Link>
           </div>
         </div>
       </div>
